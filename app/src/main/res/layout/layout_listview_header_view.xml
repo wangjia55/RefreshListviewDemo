@@ -1,34 +1,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="#ffdfff89"
     android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
         android:layout_toLeftOf="@+id/text_view_header">
 
         <ImageView
             android:id="@+id/image_view_header_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:visibility="visible"
             android:src="@drawable/ic_arrow_down"/>
         <ProgressBar
             android:id="@+id/progress_bar_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="visible"/>
-        </FrameLayout>
+            android:visibility="gone"/>
+        </LinearLayout>
 
     <TextView
         android:id="@+id/text_view_header"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:textSize="20sp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="15dp"
-        android:text="下拉刷新"
-        android:layout_centerInParent="true" />
-
-
+        android:text="下拉刷新"/>
+    </RelativeLayout>
 </RelativeLayout>

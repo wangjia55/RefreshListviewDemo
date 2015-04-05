@@ -1,5 +1,7 @@
 package com.jacob.listview;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +20,18 @@ public class MainActivity extends FragmentActivity implements RefreshListView.On
     private RefreshListView mRefreshListView;
     private RefreshListAdapter mRefreshAdapter;
     private List<GamesBean> mGamesList  = new ArrayList<>();
+
+    private Handler mhandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what){
+                case 11:
+                    mRefreshListView.refreshComplete();
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +54,7 @@ public class MainActivity extends FragmentActivity implements RefreshListView.On
 
     @Override
     public void onHeaderLoading() {
-
+        mhandler.sendEmptyMessageDelayed(11,2000);
     }
 
     @Override
